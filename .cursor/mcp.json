@@ -1,0 +1,5 @@
+{
+  "_comment_purpose": "minicreata-v3 项目级 MCP 配置。figma MCP 已通过用户级插件全局生效(由 cursor-app-control 等管理),无需在此重复声明。Lark 集成走 lark-cli 命令行,不走 MCP(见 shared/DECISIONS.md ADR-004)。如需要项目专属的 MCP 服务器(例如 datadog 项目实例 / 临时数据库连接),在 mcpServers 下追加。",
+  "_comment_lark": "Lark 推送通过 prd-planner 角色调用 C:\\Users\\wangjiawei\\AppData\\Roaming\\npm\\lark-cli.cmd",
+  "mcpServers": {}
+}
