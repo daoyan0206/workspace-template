@@ -1,0 +1,32 @@
+# 框架资产路径清单(单一事实源 / Single Source of Truth)
+#
+# 本文件被 diff-back-to-template.ps1 与 .cursor/BACKFLOW.md 共同读取。
+# 每行一个受追踪路径(相对项目根 / 模板根)。
+# 若模板侧路径与项目侧不同(例如带 .template 后缀),用 `|` 分隔:
+#     <项目侧相对路径>|<模板侧相对路径>
+# 以 # 起首的行与空行被忽略。
+#
+# === 框架核心规则 / 编排 ===
+.cursor/rules/ORCHESTRATOR.md
+.cursor/rules/PROJECT.md|.cursor/rules/PROJECT.md.template
+#
+# === 5 个 Subagent 定义 ===
+.cursor/agents/code-impl.yaml
+.cursor/agents/data-analyst.yaml
+.cursor/agents/figma-to-prd.yaml
+.cursor/agents/prd-planner.yaml
+.cursor/agents/visual-design.yaml
+#
+# === 跨平台 / 可移植性脚本与文档 ===
+.cursor/setup-skill-links.ps1
+.cursor/PORTABILITY.md
+.cursor/BACKFLOW.md
+#
+# === 看板(框架部分) ===
+shared/board.html|shared/board.html.template
+shared/board.json|shared/board.json.template
+shared/BOARD.md
+#
+# === 项目初始化与说明 ===
+init-project.ps1
+TEMPLATE-README.md
