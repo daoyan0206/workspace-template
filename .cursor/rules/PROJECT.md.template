@@ -1,0 +1,94 @@
+---
+description: <PROJECT_NAME> 项目背景、范围边界、术语规范 — 所有角色自动加载
+alwaysApply: true
+---
+
+# <PROJECT_NAME> — 项目背景与边界(强制)
+
+> 本规则文件 **始终生效**,所有角色对话都会自动加载。任何角色在产出 PRD / 设计 / 代码 / 数据报告 / 飞书内容时,必须严格遵守本规则。
+
+## 1. 项目一句话定义
+
+<PROJECT_ONE_LINER>
+
+## 2. 本工作区的范围(In Scope)
+
+| 域 | 模块清单 |
+|---|---|
+| **<DOMAIN_1>** | <MODULES_1> |
+| **<DOMAIN_2>** | <MODULES_2> |
+| ... | ... |
+
+## 3. Out of Scope(不归我们)
+
+| 域 | 谁负责 |
+|---|---|
+| <OUT_OF_SCOPE_1> | <OWNER_1> |
+| ... | ... |
+
+(如果项目没有 out-of-scope 模块,删除本节;否则按上表填写)
+
+## 4. 跨范围处理规则(MUST)
+
+读到原料文档中涉及上述 Out of Scope 模块时:
+
+1. **默认**: 直接跳过,**不**写入你的产出
+2. **例外**: 如果该模块缺失会导致【用户体验断层】或【系统逻辑断层】
+3. **例外触发时**: 在 `shared/risks/cross-team-alignment.md` **追加**一条记录,不要修改已有条目
+4. **不主动设计跨团队接口**: 等双方对齐后再建 `shared/interfaces/`
+
+## 5. 阶段术语统一(MUST)
+
+| 阶段 | 时间锚点 | 说明 |
+|---|---|---|
+| **Demo** | <DEMO_DATE> | <DEMO_DESC> |
+| **Beta** | <BETA_DATE> | <BETA_DESC> |
+| 正式版 | 待定 | 公开发行 |
+
+(如果你的项目用不同的阶段命名,按需修改)
+
+## 6. PRD 双阶段输出规范(prd-planner MUST)
+
+每个功能段落使用四段式标注:
+
+```
+## <功能名>
+[Demo]            Demo 阶段做到的程度
+[Beta 补全]       Beta 阶段在 Demo 基础上补什么
+[Demo+Beta 共享]  两阶段都用的底层约定
+[Out-of-scope]    外部团队负责的部分,只列模块名
+```
+
+## 7. 工作目录约定(MUST)
+
+| 用途 | 路径 |
+|---|---|
+| 角色私有草稿区 | `roles/<role>/workspace/` |
+| 跨角色共享原料 | `shared/inputs/` |
+| 跨角色共享产物 | `shared/outputs/<type>/` |
+| 角色之间的交接单 | `shared/handoffs/` |
+| 决策记录 | `shared/DECISIONS.md` |
+| 跨团队风险登记 | `shared/risks/cross-team-alignment.md` |
+| 需求看板 | `shared/board.json` + `shared/board.html` |
+
+## 8. 飞书推送约定(prd-planner MUST,可选)
+
+(如果项目不需要飞书集成,删除本节)
+
+- 工具:`lark-cli`(路径见用户全局配置)
+- 推送目标:`<PROJECT_NAME>` 知识库节点(首次运行时由 prd-planner 创建并记录到 [shared/DECISIONS.md] ADR-005)
+- 推送前必须:用户审过 PRD 内容
+
+## 9. 关键原料文档
+
+- `shared/inputs/<your-source-doc>.md` — <说明>
+- `shared/PROJECT.md` — 项目说明(本规则的人类可读版)
+- `shared/GLOSSARY.md` — 完整术语表
+
+## 10. 反模式(NEVER)
+
+- ❌ 不要给 out-of-scope 模块写 PRD 或代码计划
+- ❌ 不要修改 `shared/risks/cross-team-alignment.md` 里已有条目(只追加)
+- ❌ 不要主动设计跨团队接口
+- ❌ 不要在 `shared/` 之外的路径产出最终交付物
+- ❌ 不要未经用户审核就推送任何内容到飞书

@@ -1,0 +1,38 @@
+# 默认按平台自动转换(checkout 时按系统,提交时统一 LF)
+* text=auto eol=lf
+
+# 强制 LF 的文本类型(脚本/配置/文档)
+*.sh        text eol=lf
+*.md        text eol=lf
+*.json      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+*.js        text eol=lf
+*.ts        text eol=lf
+
+# PowerShell 脚本保持 CRLF(Windows PowerShell 5.1 对 LF 兼容但 CRLF 更稳)
+*.ps1       text eol=crlf
+*.psm1      text eol=crlf
+*.psd1      text eol=crlf
+
+# 模板文件(去后缀后会变成上面对应类型,行尾交给目标扩展规则;模板本身按 auto)
+*.template  text eol=lf
+
+# 二进制 — 不做任何换行/编码转换
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.webp      binary
+*.pdf       binary
+*.zip       binary
+*.gz        binary
+*.ico       binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+*.otf       binary
+*.mp4       binary
+*.mov       binary

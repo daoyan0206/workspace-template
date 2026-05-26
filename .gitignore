@@ -1,0 +1,49 @@
+# ============================================================
+# workspace-template .gitignore
+# 模板仓只放骨架 + 脚本 + 文档,不放任何机器/项目运行时产物。
+# ============================================================
+
+# --- skill 软链(每台机器自己跑 setup-skill-links.ps1 重建) ---
+.cursor/skills/
+
+# --- 角色私有沙箱(每个项目运行时产物,不入模板仓) ---
+roles/*/workspace/*
+!roles/*/workspace/.gitkeep
+
+# --- 看板运行时数据(模板仓只保留 *.template,真实 board.json/board.html 不入仓) ---
+shared/board.json
+shared/board.html
+
+# --- 编辑器 / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- 操作系统垃圾文件 ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+ehthumbs.db
+
+# --- 日志 / 临时文件 ---
+*.log
+*.tmp
+*.bak
+*.orig
+
+# --- 环境与密钥(双保险,这类文件本就不该出现在模板仓) ---
+.env
+.env.*
+*.token
+*.pem
+*.key
+secrets.json
+mcp.local.json
+
+# --- Node / Python 依赖(模板不应包含,但防误推) ---
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
