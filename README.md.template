@@ -1,0 +1,58 @@
+# <PROJECT_NAME>
+
+> 5 角色 subagent 协作工作区。基于 workspace-template 初始化。
+
+## 范围
+
+(填写本项目的 in-scope / out-of-scope,可参考 `shared/PROJECT.md`)
+
+## 阶段术语
+
+| 阶段 | 时间 |
+|---|---|
+| Demo | <DEMO_DATE> |
+| Beta | <BETA_DATE> |
+
+## 5 个角色
+
+| 角色 | 一句话职责 |
+|---|---|
+| **figma-to-prd** | Step 3:读 Figma 终稿 → 回灌为 PRD v3 |
+| **prd-planner** | Step 1:写 v1 纯需求 PRD;推飞书 |
+| **code-impl** | (已剔除出全流程编排,需要时单独派) |
+| **data-analyst** | Step 4:基于 PRD v3 出埋点 |
+| **visual-design** | Step 2:出线框 + 合并为 PRD v2 |
+
+## 典型工作流
+
+> 你说:"针对 X 系统走完整流程"
+
+主 agent **串行**调度,每步审过才进下一步:
+
+1. `prd-planner` → `shared/outputs/prd/<topic>-v1.md` → ⏸ 你审
+2. `visual-design` → Figma 低保真线框 + 合并回 PRD 为 `-v2.md` → ⏸ 你审
+3. 设计师据 v2 在 Figma 出终稿(人工),给主 agent URL
+4. `figma-to-prd` → 替换 v2 视觉 → `-v3.md` → ⏸ 你审
+5. `data-analyst` → `shared/outputs/data-reports/<topic>-events.md` → ⏸ 你审
+6. 主 agent 汇总
+
+详见 [.cursor/rules/ORCHESTRATOR.md](.cursor/rules/ORCHESTRATOR.md)
+
+## 多需求并行
+
+- 打开 `shared/board.html` 看实时状态
+- 数据源:`shared/board.json`
+- 用户给指令时带上 topic 名(`avatar PRD OK 继续`),避免歧义
+
+## 关键文档
+
+| 文档 | 用途 |
+|---|---|
+| [shared/PROJECT.md](shared/PROJECT.md) | 项目说明 |
+| [shared/GLOSSARY.md](shared/GLOSSARY.md) | 术语表 |
+| [shared/DECISIONS.md](shared/DECISIONS.md) | ADR 决策记录 |
+| [shared/BOARD.md](shared/BOARD.md) | 看板字段说明 |
+| [shared/board.html](shared/board.html) | 可视化看板 |
+| [shared/risks/cross-team-alignment.md](shared/risks/cross-team-alignment.md) | 跨团队风险 |
+| [.cursor/rules/PROJECT.md](.cursor/rules/PROJECT.md) | 项目规则(agent 自动加载) |
+| [.cursor/rules/ORCHESTRATOR.md](.cursor/rules/ORCHESTRATOR.md) | 编排手册 |

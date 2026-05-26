@@ -1,0 +1,46 @@
+# <PROJECT_NAME> - 项目说明
+
+## 一句话定义
+
+<PROJECT_ONE_LINER>
+
+## 我们(本工作区)负责的范围
+
+| 域 | 模块 |
+|---|---|
+| **<DOMAIN_1>** | <MODULES_1> |
+
+## Out of Scope(不归我们负责)
+
+| 域 | 谁负责 |
+|---|---|
+| <OUT_OF_SCOPE_1> | <OWNER_1> |
+
+## 阶段术语
+
+| 阶段 | 时间锚点 |
+|---|---|
+| Demo | <DEMO_DATE> |
+| Beta | <BETA_DATE> |
+| 正式版 | 待定 |
+
+## 关键原料
+
+- `shared/inputs/<your-source-doc>.md` — <说明>
+
+## 产出去向
+
+| 角色 | 产出目录 |
+|---|---|
+| figma-to-prd | `shared/outputs/design-specs/` (Step 3:`prd/<topic>-v3.md`) |
+| prd-planner | `shared/outputs/prd/<topic>-v1.md` |
+| code-impl | `shared/outputs/code-plans/` (已剔除出全流程编排) |
+| data-analyst | `shared/outputs/data-reports/` |
+| visual-design | `shared/outputs/visual-assets/` + `prd/<topic>-v2.md` |
+
+## 决策与风险
+
+- 决策记录:[DECISIONS.md](DECISIONS.md)
+- 跨团队风险:[risks/cross-team-alignment.md](risks/cross-team-alignment.md)
+- 术语表:[GLOSSARY.md](GLOSSARY.md)
+- 需求看板:[BOARD.md](BOARD.md) / [board.html](board.html)
