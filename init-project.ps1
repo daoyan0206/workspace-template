@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   从 workspace-template 初始化一个新项目工作区。
 
